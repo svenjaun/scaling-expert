@@ -1,3 +1,12 @@
-<div *ngFor="let item of items">
-
+<input [value]="xmodel" (keyup)="filterResults($event, true)">
+<input [value]="ymodel" (keyup)="filterResults($event, false)">
+<br>
+<button (click)="changeXY()"> Submit</button>
+<button (click)="export()"> Export</button>
+<br>
+<div class="main" *ngFor="let item of items; let index1 = index">
+  <div *ngFor="let i of item; let index2 = index">
+    <div class="test" (click)="lol(index1, index2)" [style]="'width: ' + size + 'px; height: ' + size + 'px; background-color: ' + getColor(i)">{{ i }}</div>
+  </div>
+  <br>
 </div>
