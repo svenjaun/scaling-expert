@@ -30,6 +30,31 @@ export class AppComponent implements OnInit {
       string = " "
     }
     this.items[index1][index2] = string;
+
+
+
+    this.gravity();
+  }
+
+  gravity() {
+    for (let i1 = 0; i1 < this.items.length; i1++){
+      let item1 = this.items[i1];
+      let string = "";
+      for (let i2 = 0; i2 < item1.length; i2++){
+        let item2 = item1[i2];
+        if (item2 != " ") {
+          console.log("FUCK1")
+          if (i2 <= item1.length - 1 && item1[i2 + 1] == " ") {
+            item1[i2 + 1] =  item1[i2];
+            item1[i2] = " ";
+            console.log("FUCK2")
+          }
+        }
+       string+=item2;
+      }
+      console.log(string)
+    }
+    console.log(this.items)
   }
 
   changeXY() {
@@ -63,7 +88,7 @@ export class AppComponent implements OnInit {
       let item = this.items[i1];
       output += "{";
       for (let i = 0; i < item.length; i++){
-        output += '"' + this.items[i][i1] + '",';
+        output += '"' + this.items[i1][i] + '",';
       }
       output += "},\n";
     }
@@ -72,3 +97,4 @@ export class AppComponent implements OnInit {
     console.log("copied")
   }
 }
+
